@@ -1,3 +1,4 @@
 module github.com/k-zhang/leetcode-go
 
-go 1.21.4
+go 1.18
+
