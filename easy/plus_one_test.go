@@ -26,7 +26,7 @@ func Test_plus_one(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := plusOne(tt.args.digits); !reflect.DeepEqual(got, tt.want) {
+			if got := PlusOne(tt.args.digits); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("plus_one() = %v, want %v", got, tt.want)
 			}
 		})
