@@ -4,6 +4,12 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
+func reverseSlice(s []rune) {
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		s[i], s[j] = s[j], s[i]
+	}
+}
+
 func removeDuplicates(s string) string {
 	if len(s) == 1 {
 		return s
@@ -19,12 +25,13 @@ func removeDuplicates(s string) string {
 		}
 	}
 
-	sb := ""
-	stackSize := workStack.Len()
-	for i := 0; i < stackSize; i++ {
-		c := workStack.Pop().(int32)
-		sb = string(c) + sb
+	var runes []rune
+	for workStack.Len() > 0 {
+		r := workStack.Pop().(rune)
+		runes = append(runes, r)
 	}
 
-	return sb
+	reverseSlice(runes)
+
+	return string(runes)
 }
